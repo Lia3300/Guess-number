@@ -1,0 +1,42 @@
+import random
+
+games_won = 0
+total_games = 0
+
+while True:
+    counter = 0
+    lia = random.randint(1, 100)
+    guesses = []
+
+    while counter < 5: 
+        user_pick = int(input("Guess a number between 1 and 100: ")) 
+        guesses.append(user_pick)
+        print(f"You've made the following guesses: {guesses}")
+
+        if user_pick == lia:
+            print("Congratulations! You guessed correctly.")
+            games_won += 1
+            break
+        elif user_pick < lia:
+            print("Your guess is too low.")
+        else:
+            print("Your guess is too high.")
+
+        counter += 1 
+
+    if counter == 5:
+        print(f"Sorry, you've used all your guesses. The correct number was {lia}.")
+
+    total_games += 1 
+
+    play_again = input("Do you want to play again? (yes/no): ")
+    if play_again.lower() != 'yes':
+        break
+
+print(f"Total games played: {total_games}, Total games won: {games_won}")
+
+
+
+
+
+  
